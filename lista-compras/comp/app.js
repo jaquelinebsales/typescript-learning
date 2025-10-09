@@ -32,7 +32,6 @@ const removerItem = (id) => {
     const itensAtualizados = itens.filter(item => item.id !== id);
     salvarItens(itensAtualizados);
 };
-
 //Editando um item pelo id
 const editarItem = (id, novoNome) => {
     const itens = carregarItens();
@@ -48,21 +47,16 @@ const renderizarItens = () => {
     listaItens.innerHTML = '';
     itens.forEach(item => {
         const listItem = document.createElement('li');
-        const deleteButton = document.createElement('button')
-        const trash = document.createElement('i')
-
-        trash.className = 'bi bi-trash'
-
+        const button = document.createElement('button');
+        const icon = document.createElement('i');
+        const textSpan = document.createElement('span');
+        icon.className = 'bi bi-trash3';
         listItem.className = 'list-group-item';
-        listItem.textContent = item.nome;
-
-        deleteButton.className = 'list-group-item'
-
-        deleteButton.appendChild(trash);
-
+        textSpan.textContent = item.nome;
+        listItem.appendChild(textSpan);
+        button.appendChild(icon);
+        listItem.appendChild(button);
         listaItens.appendChild(listItem);
-        listaItens.appendChild(deleteButton);
-
         listItem.addEventListener('dblclick', () => {
             const novoNome = prompt('Editar item: ', item.nome);
             if (novoNome !== null) {
@@ -70,18 +64,10 @@ const renderizarItens = () => {
             }
             renderizarItens();
         });
-
-        deleteButton.addEventListener('click', () =>{
-            const deleteConfirm = confirm(`Tem certeza que deseja deletar o item ${item.nome}?`);
-
-            if(deleteConfirm){
-                removerItem(item.id);
-                renderizarItens();
-            } else {
-                alert("Delete cancelado");
-            }
-
-        })
+        button.addEventListener(('click'), () => {
+            removerItem(item.id);
+            renderizarItens();
+        });
     });
 };
 //Inicializando a aplicação

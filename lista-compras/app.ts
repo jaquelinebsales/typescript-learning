@@ -31,7 +31,8 @@ const adicionarItem = (nome:string):void =>{
     const novoItem :Item = {
         id: new Date().toISOString(),
         nome: nome
-    } 
+    }
+    
     itens.push(novoItem);
     salvarItens(itens);
 }
@@ -60,8 +61,17 @@ const renderizarItens = () => {
     listaItens.innerHTML = '';
     itens.forEach(item => {
         const listItem = document.createElement('li');
+        const button = document.createElement('button');
+        const icon = document.createElement('i');
+        const textSpan = document.createElement('span');
+
+        icon.className = 'bi bi-trash3';
         listItem.className = 'list-group-item';
-        listItem.textContent = item.nome;
+        textSpan.textContent = item.nome;
+
+        listItem.appendChild(textSpan);
+        button.appendChild(icon)
+        listItem.appendChild(button);
         listaItens.appendChild(listItem);
 
         listItem.addEventListener('dblclick', () => {
@@ -69,6 +79,11 @@ const renderizarItens = () => {
             if(novoNome !== null){
                 editarItem(item.id, novoNome);
             }
+            renderizarItens();
+        })
+
+        button.addEventListener(('click'), ()=>{
+            removerItem(item.id);
             renderizarItens();
         })
     })
