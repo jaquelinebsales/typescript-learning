@@ -76,7 +76,7 @@ const renderizarItens = () => {
 
         listItem.addEventListener('dblclick', () => {
             const novoNome = prompt('Editar item: ', item.nome);
-            if(novoNome !== null){
+            if((novoNome !== null) && (novoNome !== '')){
                 editarItem(item.id, novoNome);
             }
             renderizarItens();

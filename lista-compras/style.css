@@ -71,15 +71,15 @@ input:focus-visible{
 }
 
 ul{
-    max-height: 60vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 30px;
 }
 
 li{
     background-color: rgb(255, 255, 255);
-    width: 400px;
+    width: 470px;
     margin: 5px;
     display: flex;
     justify-content: space-between;
@@ -87,6 +87,14 @@ li{
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.226);
     border-radius: 5px;
     align-items: center;
+}
+
+li span{
+    max-width: 92%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto; /* Adiciona hífen quando quebra */
+    text-align: justify;
 }
 
 li button{
@@ -102,6 +110,13 @@ li button{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+form p{
+    color: var(--cool-gray);
+    margin: 5px;
+    font-size: 0.8em;
 }
 
 li button:hover{

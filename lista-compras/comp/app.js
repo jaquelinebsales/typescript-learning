@@ -59,7 +59,7 @@ const renderizarItens = () => {
         listaItens.appendChild(listItem);
         listItem.addEventListener('dblclick', () => {
             const novoNome = prompt('Editar item: ', item.nome);
-            if (novoNome !== null) {
+            if ((novoNome !== null) && (novoNome !== '')) {
                 editarItem(item.id, novoNome);
             }
             renderizarItens();
@@ -70,6 +70,7 @@ const renderizarItens = () => {
         });
     });
 };
+
 //Inicializando a aplicação
 formularioItem.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -80,4 +81,5 @@ formularioItem.addEventListener('submit', (e) => {
         renderizarItens();
     }
 });
+
 renderizarItens();
