@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "outDir": "dist/js",
+        "target": "es6",
+        "noEmitOnError": true,/*Não deixa compialr até que nao exsita nenhum erro*/
+        "noImplicitAny": true/*Dá erro onde o tipo any for implicitamente atribuido*/
+    },
+    "include": ["app/**/*"]
+}

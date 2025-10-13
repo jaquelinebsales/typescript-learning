@@ -70,7 +70,6 @@ const renderizarItens = () => {
         });
     });
 };
-
 //Inicializando a aplicação
 formularioItem.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -81,5 +80,4 @@ formularioItem.addEventListener('submit', (e) => {
         renderizarItens();
     }
 });
-
 renderizarItens();
