@@ -1,6 +1,7 @@
 console.log(" ✅app.js está carregando!");
 import { Negociacao } from "./models/negociacao.js";
 import { NegociacaoController } from "./controllers/negociacao-controller.js";
+import { NegociacoesView } from "./views/negociacoes-view.js";
 const minhaNegociacao = new Negociacao(new Date(), 20, 1500.18);
 console.log(minhaNegociacao);
 const constroller = new NegociacaoController();
@@ -9,3 +10,4 @@ form.addEventListener('submit', (event) => {
     event.preventDefault(); /*evitar o refresh da página*/
     constroller.adiciona();
 });
+const negociacoesView = new NegociacoesView('#negociacoesView');
