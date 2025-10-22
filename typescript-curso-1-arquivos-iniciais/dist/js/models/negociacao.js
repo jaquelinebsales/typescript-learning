@@ -1,5 +1,6 @@
 console.log("✅ negociacao.js está carregando!");
 export class Negociacao {
+    /*Só podem ser modficadas dentro dessa classe*/
     /* aqui sao instâncias da classe que persistem com a classe, além de ser acessível em todas as funções*/
     constructor(
     /*private _data: Date, /* é public por padrão
@@ -9,8 +10,6 @@ export class Negociacao {
         this._data = _data;
         this.quantidade = quantidade;
         this.valor = valor;
-        /*Só podem ser modficadas dentro dessa classe*/
-        this.calopsitaName = 'Calo';
     }
     /*Apenas usando a funcao get é possível acessar esses atributos privados da classe*/
     get data() {

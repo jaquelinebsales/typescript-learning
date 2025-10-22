@@ -3,7 +3,6 @@ console.log("✅ negociacao.js está carregando!");
 
 export class Negociacao{
     /*Só podem ser modficadas dentro dessa classe*/
-    private calopsitaName = 'Calo';
     /* aqui sao instâncias da classe que persistem com a classe, além de ser acessível em todas as funções*/
 
     constructor(

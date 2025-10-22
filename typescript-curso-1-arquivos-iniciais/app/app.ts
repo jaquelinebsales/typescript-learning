@@ -2,7 +2,7 @@ console.log(" ✅app.js está carregando!");
 
 import { Negociacao } from "./models/negociacao.js"
 import { NegociacaoController } from "./controllers/negociacao-controller.js";
-import { NegociacoesView } from "./views/negociacoes-view.js";
+import { View } from "./views/view.js"; 
 
 
 const minhaNegociacao = new Negociacao(new Date(), 20, 1500.18)
@@ -16,4 +16,4 @@ form.addEventListener('submit', (event: Event) =>{
     constroller.adiciona();
 });
 
-const negociacoesView = new NegociacoesView('#negociacoesView');
+/*const negociacoesView = new View('#negociacoesView');*/
