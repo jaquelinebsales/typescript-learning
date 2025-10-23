@@ -1,17 +1,13 @@
-import { Negociacoes } from "../models/negociacoes"; 
 
-export class View{
-    private elementNegociacoes: HTMLElement;
-    private elementMensagem: HTMLElement;
-    
+export abstract class View<T>{
+    protected element: HTMLElement;
 
-    constructor(seletorNegociacoes:string, seletorMensagem:string){
-        this.elementNegociacoes = document.querySelector(seletorNegociacoes);
-        this.elementMensagem = document.querySelector(seletorMensagem);
+    constructor(seletor:string){
+        this.element = document.querySelector(seletor);
 
     }
 
-    template(modelNegociacao: Negociacoes, modelAlert:string):string[]{
+    /*template(modelNegociacao: Negociacoes, modelAlert:string):string[]{
         const elementsArray:string[] = [];
         elementsArray.push(`<p class="alert alert-info">${modelAlert}</p>`);
         elementsArray.push(`
@@ -39,11 +35,12 @@ export class View{
 
         return elementsArray;
 
-    }
+    }*/
 
-    update(modelNegociacao: Negociacoes, modelAlert: string):void{
-        const template = this.template(modelNegociacao, modelAlert);
-        this.elementNegociacoes.innerHTML = template[1];
-        this.elementMensagem.innerHTML = template[0];
+    protected abstract template(model:T):string;
+
+    update(model:T):void{
+        const template = this.template(model);
+        this.element.innerHTML = template;
     }
 }
