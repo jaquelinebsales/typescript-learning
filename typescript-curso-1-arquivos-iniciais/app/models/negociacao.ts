@@ -25,4 +25,8 @@ export class Negociacao{
     get volume(){
         return this.quantidade * this.valor;
     }
+
+    /*public criaDe(data:string, quantidade:string, valor:string){
+        
+    }*/
 }
