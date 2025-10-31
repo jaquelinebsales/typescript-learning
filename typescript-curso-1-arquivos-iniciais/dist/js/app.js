@@ -1,12 +1,16 @@
 console.log(" ✅app.js está carregando!");
-import { Negociacao } from "./models/negociacao.js";
 import { NegociacaoController } from "./controllers/negociacao-controller.js";
-const minhaNegociacao = new Negociacao(new Date(), 20, 1500.18);
-console.log(minhaNegociacao);
 const constroller = new NegociacaoController();
 const form = document.querySelector('.form');
-form.addEventListener('submit', (event) => {
-    event.preventDefault(); /*evitar o refresh da página*/
-    constroller.adiciona();
-});
-/*const negociacoesView = new View('#negociacoesView');*/
+if (form) {
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        console.log("O submit do form ta enviando");
+        constroller.adiciona();
+    });
+    console.log("O form tá sendo reconhecido pelo typescript");
+    console.log("Form:", form);
+}
+else {
+    throw Error('Não foi possível iniciaizar a aplicação. Verifique se o form existe.');
+}

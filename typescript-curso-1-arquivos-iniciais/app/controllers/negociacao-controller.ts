@@ -10,17 +10,26 @@ export class NegociacaoController{
     private negociacoes: Negociacoes = new Negociacoes();
     private negociacoesView: NegociacoesView = new NegociacoesView('#negociacoesView', true);
     private negociacaoMensagemView : MensagemView = new MensagemView('#mensagemView');
-     /*private view : View = new View('#negociacoesView','#mensagemView');*/
 
-    constructor(){
-        this.inputData = document.querySelector('#data');
-        this.inputQuantidade = document.querySelector('#quantidade');
-        this.inputValor = document.querySelector('#valor');
+    constructor() {
+        this.inputData = document.querySelector('#data') as HTMLInputElement;  
+        this.inputQuantidade = document.querySelector('#quantidade') as HTMLInputElement;
+        this.inputValor = document.querySelector('#valor') as HTMLInputElement;
         
+        // Verificação APÓS a inicialização
+        if (!this.inputData || !this.inputQuantidade || !this.inputValor) {
+            console.log("As inputs não estão sendo corretamente implementadas.");
+            console.log(this.inputData, this.inputQuantidade, this.inputValor);
+        }
+    }
+
+    private eDiaUtil(data:Date):boolean{
+        return data.getDay() > DiaDaSemana.DOMINGO && data.getDay() < DiaDaSemana.SABADO;
     }
 
     adiciona(): void{
-        const negociacao: Negociacao = this.criaNegociacao();
+        console.log("O método adiciona em negociacao-controller esta sendo chamado");
+        const negociacao: Negociacao = this.criaNegociacao();//Aqui está o problema!!!!
 
         if (!this.eDiaUtil(negociacao.data)){
             this.negociacaoMensagemView.update("Apenas negociações em dias úteis são aceitas.");
@@ -33,8 +42,8 @@ export class NegociacaoController{
     }
     
     private criaNegociacao(): Negociacao{
-        const exp = /-/g;
-        const date = new Date(this.inputData.value.replace(exp, ','))
+        const exp = /-/g;//encontra todos os caractres hífen(-)
+        const date = new Date(this.inputData.value.replace(exp, ','));
         const quantidade = parseInt(this.inputQuantidade.value);
         const valor = parseFloat(this.inputValor.value);
         
@@ -55,7 +64,5 @@ export class NegociacaoController{
 
     }
 
-    private eDiaUtil(data:Date):boolean{
-        return data.getDay() > DiaDaSemana.DOMINGO && data.getDay() < DiaDaSemana.SABADO;
-    }
+
 }

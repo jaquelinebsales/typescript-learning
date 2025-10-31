@@ -4,7 +4,8 @@
         "target": "es6",
         "noEmitOnError": true,/*Não deixa compialr até que nao exsita nenhum erro*/
         "noImplicitAny": true,/*Dá erro onde o tipo any for implicitamente atribuido*/
-        "removeComments": true
+        "removeComments": true,
+        "strictNullChecks": true
     },
-    "include": ["app/**/*"]
+    "include": ["app/**/*"],
 }
