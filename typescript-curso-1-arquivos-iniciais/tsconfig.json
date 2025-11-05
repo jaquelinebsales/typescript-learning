@@ -5,7 +5,8 @@
         "noEmitOnError": true,/*Não deixa compialr até que nao exsita nenhum erro*/
         "noImplicitAny": true,/*Dá erro onde o tipo any for implicitamente atribuido*/
         "removeComments": true,
-        "strictNullChecks": true
+        "strictNullChecks": true,
+        "experimentalDecorators": true
     },
     "include": ["app/**/*"],
 }

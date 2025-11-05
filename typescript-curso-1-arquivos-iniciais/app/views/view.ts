@@ -1,3 +1,4 @@
+import { logarTempoDeExecucao } from "../decorator/logar-tempo-de-execucao.js";
 
 export abstract class View<T>{
     protected element: HTMLElement;
@@ -18,14 +19,12 @@ export abstract class View<T>{
 
     protected abstract template(model:T):string;
 
+    @logarTempoDeExecucao()
     update(model:T):void{
-        const t1 = performance.now();
         let template = this.template(model);
         if(this.escapar){
             template = template.replace(/script[\s\S]*?<\/script>/,'');
         }
         this.element.innerHTML = template;
-        const t2 = performance.now();
-        console.log(`Tempo de execução do método update: ${(t2-t1)/1000}`);
     }
 }

@@ -3,6 +3,7 @@ import { Negociacoes } from "../models/negociacoes.js";
 import { NegociacoesView } from "../views/negociacoes-view.js";
 import { MensagemView } from "../views/mensagem-view.js"; 
 import { DiaDaSemana } from "../enuns/dias-da-semana.js";
+import { logarTempoDeExecucao } from "../decorator/logar-tempo-de-execucao.js";
 export class NegociacaoController{
     private inputData: HTMLInputElement;
     private inputQuantidade: HTMLInputElement;
@@ -23,6 +24,8 @@ export class NegociacaoController{
         }
     }
 
+    @logarTempoDeExecucao()
+    
     private eDiaUtil(data:Date):boolean{
         return data.getDay() > DiaDaSemana.DOMINGO && data.getDay() < DiaDaSemana.SABADO;
     }
