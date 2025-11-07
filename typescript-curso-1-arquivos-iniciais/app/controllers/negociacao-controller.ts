@@ -4,12 +4,13 @@ import { NegociacoesView } from "../views/negociacoes-view.js";
 import { MensagemView } from "../views/mensagem-view.js"; 
 import { DiaDaSemana } from "../enuns/dias-da-semana.js";
 import { logarTempoDeExecucao } from "../decorator/logar-tempo-de-execucao.js";
+import { inspect } from "../decorator/inspect.js";
 export class NegociacaoController{
     private inputData: HTMLInputElement;
     private inputQuantidade: HTMLInputElement;
     private inputValor: HTMLInputElement;
     private negociacoes: Negociacoes = new Negociacoes();
-    private negociacoesView: NegociacoesView = new NegociacoesView('#negociacoesView', true);
+    private negociacoesView: NegociacoesView = new NegociacoesView('#negociacoesView');
     private negociacaoMensagemView : MensagemView = new MensagemView('#mensagemView');
 
     constructor() {
@@ -24,12 +25,13 @@ export class NegociacaoController{
         }
     }
 
-    @logarTempoDeExecucao()
     
     private eDiaUtil(data:Date):boolean{
         return data.getDay() > DiaDaSemana.DOMINGO && data.getDay() < DiaDaSemana.SABADO;
     }
-
+    
+    @logarTempoDeExecucao(true)
+    @inspect()
     adiciona(): void{
         console.log("O método adiciona em negociacao-controller esta sendo chamado");
         const negociacao: Negociacao = this.criaNegociacao();//Aqui está o problema!!!!
