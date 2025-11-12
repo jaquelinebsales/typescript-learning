@@ -1,4 +1,3 @@
-import { escape } from "../decorator/escape.js";
 import { inspect } from "../decorator/inspect.js";
 import { logarTempoDeExecucao } from "../decorator/logar-tempo-de-execucao.js";
 

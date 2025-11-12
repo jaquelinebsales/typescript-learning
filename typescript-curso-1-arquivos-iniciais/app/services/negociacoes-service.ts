@@ -12,6 +12,5 @@ export class NegociacoesService{
                     return new Negociacao( new Date(), dadoDeHoje.vezes, dadoDeHoje.montante);
                 });
             })
-
     }
 }

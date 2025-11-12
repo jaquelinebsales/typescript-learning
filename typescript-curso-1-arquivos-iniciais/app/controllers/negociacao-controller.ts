@@ -6,6 +6,7 @@ import { DiaDaSemana } from "../enuns/dias-da-semana.js";
 import { logarTempoDeExecucao } from "../decorator/logar-tempo-de-execucao.js";
 import { inspect } from "../decorator/inspect.js";
 import { NegociacoesService } from "../services/negociacoes-service.js";
+import { imprimir } from "../utils/imprimir.js";
 
 export class NegociacaoController{
     private inputData: HTMLInputElement;
@@ -45,6 +46,7 @@ export class NegociacaoController{
         }
         
         this.negociacoes.adiciona(negociacao);
+        imprimir(negociacao, this.negociacoes);
         this.limparFormulario();
         this.atualizaView();
     }

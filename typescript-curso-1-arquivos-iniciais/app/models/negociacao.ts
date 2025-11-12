@@ -1,7 +1,9 @@
+import { Imprimivel } from "../utils/imprimivel";
+
 console.log("✅ negociacao.js está carregando!");
 
 
-export class Negociacao{
+export class Negociacao implements Imprimivel{
     /*Só podem ser modficadas dentro dessa classe*/
     /* aqui sao instâncias da classe que persistem com a classe, além de ser acessível em todas as funções*/
 
@@ -13,7 +15,9 @@ export class Negociacao{
         private _data: Date,
         public readonly quantidade: number,
         public readonly valor: number
-    ){}
+    ){
+        
+    }
 
     /*Apenas usando a funcao get é possível acessar esses atributos privados da classe*/
 
@@ -26,6 +30,12 @@ export class Negociacao{
         return this.quantidade * this.valor;
     }
 
+    public paraTexto():string{
+        return `
+            Data: ${this.data}
+            Quantidade: ${this.quantidade}
+            Valor: ${this.valor}`;
+    }
     /*public criaDe(data:string, quantidade:string, valor:string){
         
     }*/
