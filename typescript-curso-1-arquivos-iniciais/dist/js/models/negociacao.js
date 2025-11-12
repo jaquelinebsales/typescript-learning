@@ -1,4 +1,3 @@
-console.log("✅ negociacao.js está carregando!");
 export class Negociacao {
     constructor(_data, quantidade, valor) {
         this._data = _data;
@@ -24,3 +23,4 @@ export class Negociacao {
             && this.data.getFullYear() === negociacao.data.getFullYear();
     }
 }
+//# sourceMappingURL=negociacao.js.map

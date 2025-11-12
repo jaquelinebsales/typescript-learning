@@ -1,9 +1,7 @@
-import { Imprimivel } from "../utils/imprimivel";
-
-console.log("✅ negociacao.js está carregando!");
+import { Modelo } from "../interfaces/modelo.js";
 
 
-export class Negociacao implements Imprimivel{
+export class Negociacao implements Modelo<Negociacao>{
     /*Só podem ser modficadas dentro dessa classe*/
     /* aqui sao instâncias da classe que persistem com a classe, além de ser acessível em todas as funções*/
 
@@ -18,7 +16,6 @@ export class Negociacao implements Imprimivel{
     ){
         
     }
-
     /*Apenas usando a funcao get é possível acessar esses atributos privados da classe*/
 
     get data():Date{

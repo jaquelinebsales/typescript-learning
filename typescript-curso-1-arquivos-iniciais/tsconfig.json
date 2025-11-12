@@ -6,7 +6,8 @@
         "noImplicitAny": true,/*Dá erro onde o tipo any for implicitamente atribuido*/
         "removeComments": true,
         "strictNullChecks": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "sourceMap": true
     },
     "include": ["app/**/*"],
 }
